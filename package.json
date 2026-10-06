@@ -1,0 +1,46 @@
+{
+  "name": "tehnikum-site",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node_modules/.bin/eleventy --serve --port=5000",
+    "build": "node scripts/generate-webp.mjs && node_modules/.bin/eleventy && node scripts/minify-css.mjs",
+    "audit:alt": "node scripts/audit-alt-text.mjs public --append docs/baseline/2026-09-15/ALT_TEXT_AUDIT.md",
+    "build:v2": "SITE_MODE=v2 node scripts/generate-webp.mjs && SITE_MODE=v2 node_modules/.bin/eleventy && SITE_MODE=v2 node scripts/minify-css.mjs",
+    "check:v2:source-boundary": "node scripts/check-v2-source-boundary.mjs",
+    "check:urls:unique": "node scripts/check-unique-urls.mjs",
+    "check:urls:generated": "node scripts/check-expected-urls.mjs",
+    "check:links:v2": "SITE_MODE=v2 node scripts/check-v2-internal-links.mjs",
+    "check:route-shape": "node scripts/check-route-shape.mjs",
+    "check:route-shape:v2": "node scripts/check-generated-route-shape.mjs public-v2",
+    "check:frontmatter": "node scripts/check-frontmatter.mjs",
+    "check:urls:generated:v2": "SITE_MODE=v2 node scripts/check-expected-urls.mjs docs/baseline/2026-09-29/URL_MANIFEST_V2.tsv"
+  },
+  "dependencies": {
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "glightbox": "^3.3.1",
+    "lunr": "^2.3.9",
+    "lunr-languages": "^1.14.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.2.0",
+    "js-yaml": "^4.1.1",
+    "puppeteer-core": "^25.11.0",
+    "sharp": "^0.34.5"
+  },
+  "description": "> 🏫 **ГБПОУ РО \"Сальский индустриальный техникум\"**   > 🌐 Официальный сайт: `https://сит-сальск.рф/`   > 📦 Статический сайт на **Eleventy + Decap CMS**   > 🚀 Хостинг: **Beget** (SSH, Node.js 18, PHP 8.3)",
+  "main": ".eleventy.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "allowScripts": {
+    "sharp@0.34.5": true
+  }
+}

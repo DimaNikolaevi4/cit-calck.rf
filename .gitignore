@@ -1,0 +1,45 @@
+# Зависимости
+node_modules/
+
+# Результат сборки
+public/
+public-v2/
+_site/
+.eleventy-cache/
+
+# Генерируемые WebP (создаются при сборке)
+src/assets/images/**/*.webp
+
+# Кэш сборки
+.cache/
+.parcel-cache/
+.npm/
+.sass-cache/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Переменные окружения
+.env
+.env.local
+.env.*.local
+
+# Архивы
+_export/
+*.zip
+
+# Временные файлы
+attached_assets/Pasted--*
+
+# Системные
+.DS_Store
+._*
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

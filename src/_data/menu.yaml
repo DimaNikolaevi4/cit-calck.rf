@@ -1,0 +1,139 @@
+main:
+  - title: Главная
+    url: /
+    key: home
+  - title: О техникуме
+    url: /about/
+    key: about
+    children:
+      - title: Основные сведения
+        url: /svedenija/basic/
+      - title: История
+        url: /about/#история-техникума
+      - title: Руководство
+        url: /about/#руководство
+      - title: Контакты
+        url: /#footer
+  - title: Сведения об образовательной организации
+    url: /svedenija/
+    key: svedenija
+    children:
+      - title: Документы
+        url: /svedenija/dokumenty/
+      - title: Структура и органы управления
+        url: /svedenija/structure/
+      - title: Образование
+        url: /svedenija/education/
+      - title: Руководство и ППС
+        url: /svedenija/rukovodstvo/
+      - title: Материально-техническое обеспечение
+        url: /svedenija/objects/
+      - title: Стипендии и поддержка
+        url: /svedenija/stipend/
+      - title: Финансово-хозяйственная деятельность
+        url: /svedenija/finance/
+      - title: Вакантные места
+        url: /svedenija/vacancies/
+      - title: Доступная среда
+        url: /svedenija/access/
+      - title: Международное сотрудничество
+        url: /svedenija/mezhdunarodnoe/
+  - title: Абитуриентам
+    url: /abiturientam/
+    key: abiturientam
+    children:
+      - title: Слово директора
+        url: /abiturientam/slovo-direktora/
+      - title: Специальности и профессии
+        url: /abiturientam/specialnosti/
+      - title: Приёмная кампания 2026
+        url: /abiturientam/priemnaya-kampaniya-2026/
+      - title: День открытых дверей
+        url: /abiturientam/den-otkrytyh-dverej/
+      - title: Виртуальная экскурсия
+        url: /abiturientam/virtualnaya-ekskursiya/
+      - title: Подача документов (эл. почта)
+        url: /abiturientam/podacha-elektronnaya-pochta/
+      - title: Подача документов (почтовая связь)
+        url: /abiturientam/podacha-pochtovaya-svyaz/
+      - title: Платная основа обучения
+        url: /abiturientam/platnaya-osnova/
+      - title: Контакты приёмной комиссии
+        url: /abiturientam/kontakty-grafik/
+  - title: Учебно-методическая работа
+    url: /uchebno-metodicheskaja-rabota/
+    key: umr
+    children:
+      - title: Материалы УМР
+        url: /uchebno-metodicheskaja-rabota/#materials
+  - title: Воспитание
+    url: /vospitanie/
+    key: vospitanie
+    children:
+      - title: Направления воспитания
+        url: /vospitanie/#directions
+      - title: Великая Победа
+        url: /vospitanie/patrioticheskoe/velikaja-pobeda/
+      - title: Волонтерское движение
+        url: /vospitanie/volonterstvo/
+      - title: Культурно-массовая работа
+        url: /vospitanie/kulturno-massovaja/
+      - title: Медиацентр «Новости СИТ»
+        url: /vospitanie/kulturno-massovaja/mediacentr/
+      - title: Поздравления
+        url: /vospitanie/kulturno-massovaja/pozdravlenija/
+  - title: Сотрудничество
+    url: /sotrudnichestvo/
+    key: sotrudnichestvo
+    children:
+      - title: С предприятиями
+        url: /sotrudnichestvo/predprijatija/
+      - title: Со школами
+        url: /sotrudnichestvo/shkoly/
+  - title: Безопасность
+    url: /bezopasnost/extremizm/
+    key: bezopasnost
+    children:
+      - title: Профилактика экстремизма
+        url: /bezopasnost/extremizm/
+      - title: Противодействие коррупции
+        url: /bezopasnost/antikorrupcija/
+      - title: Пожарная безопасность
+        url: /bezopasnost/pozharnaya/
+      - title: Антинаркотические меры
+        url: /bezopasnost/antinarko/
+  - title: Студентам и родителям
+    url: /studentam-i-roditeljam/raspisanie/
+    key: studentam
+    children:
+      - title: Новости
+        url: /news/
+      - title: Расписание занятий
+        url: /studentam-i-roditeljam/raspisanie/
+      - title: Информационно-образовательные ресурсы
+        url: /studentam-i-roditeljam/resursy/
+      - title: Библиотека техникума
+        url: /studentam-i-roditeljam/resursy/biblioteka/
+      - title: Приказ о зачислении
+        url: /studentam-i-roditeljam/prikaz-zachislenie/
+      - title: Родителям
+        url: /studentam-i-roditeljam/roditeljam/
+  - title: Центр Карьеры
+    url: /vypusknikam/centr-karjery/
+    key: career
+    children:
+      - title: Центр Карьеры
+        url: /vypusknikam/centr-karjery/
+      - title: Центр содействия трудоустройству
+        url: /vypusknikam/centr-sodejstvija-trudoustrojstvu/
+      - title: Все материалы выпускникам
+        url: /vypusknikam/
+  - title: Профессионалы-2026
+    url: /professionaly-2026/
+    key: professionals
+  - title: Новости
+    url: /news/
+    key: news
+  - title: Контакты
+    url: /#footer
+    key: contacts

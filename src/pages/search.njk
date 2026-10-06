@@ -1,0 +1,372 @@
+---
+layout: layouts/base.njk
+title: Поиск
+description: Поиск по сайту ГБПОУ РО «Сальский индустриальный техникум»
+permalink: /search/
+---
+
+{# Контекст страницы #}
+<div class="container container--breadcrumbs">
+  {% include "components/breadcrumbs.njk" %}
+</div>
+
+<!-- Основной контент -->
+<div class="container layout">
+  <div class="layout__content layout__content--full search-page">
+    <!-- Форма поиска -->
+    <form class="search-form" role="search" action="/search/" method="get">
+      <div class="search-form__row">
+        <div class="search-form__group">
+          <input
+            type="search"
+            class="search-form__input"
+            name="q"
+            id="searchQueryInput"
+            value=""
+            placeholder="Введите запрос для поиска..."
+            aria-label="Поисковый запрос"
+            autocomplete="off"
+          >
+          <button type="submit" class="btn btn-primary btn-lg">Найти</button>
+        </div>
+      </div>
+
+      <!-- Фильтры поиска -->
+      <div class="search-filters">
+        <div class="search-filter">
+          <label for="rubricFilter" class="search-filter__label">Раздел:</label>
+          <select name="rubric" id="rubricFilter" class="search-filter__select">
+            <option value="">Все разделы</option>
+            {% for rubric in rubrics.main_rubrics %}
+            <option value="{{ rubric.slug }}">{{ rubric.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="search-filter">
+          <label class="search-filter__label">Теги:</label>
+          <div class="search-filter__tags" id="tagsFilter">
+            {# Теги будут загружены динамически через JS #}
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- Результаты поиска (скрыты до выполнения поиска) -->
+    <div class="search-results" style="display: none;">
+      <p class="search-results__info"></p>
+      <ul class="search-results__list"></ul>
+    </div>
+
+    <!-- Подсказки для поиска (показываются до поиска) -->
+    <div class="search-tips">
+      <h2 class="search-tips__title">Советы по поиску</h2>
+      <ul class="search-tips__list">
+        <li>Используйте ключевые слова для более точного поиска</li>
+        <li>Можно искать по названию, содержанию или тегам</li>
+        <li>Для поиска точной фразы используйте кавычки: "профессиональное образование"</li>
+        <li>Используйте фильтры по разделу и тегам для уточнения результатов</li>
+        <li>Поиск работает по русским и английским словам</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{# rubricsData is provided once by components/header.njk for site-wide search. #}
+{# Подключаем Lunr.js (уже в base.njk) и скрипт поиска #}
+<script src="/assets/js/search.js" defer></script>
+
+<style>
+.search-page {
+  padding: 2rem 0 4rem;
+}
+
+.search-form {
+  margin-bottom: 2rem;
+}
+
+.search-form__row {
+  margin-bottom: 1rem;
+}
+
+.search-form__group {
+  display: flex;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.search-form__input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  border: 2px solid #dee2e6;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-form__input:focus {
+  outline: none;
+  border-color: var(--color-primary, #2e7d32);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+/* Фильтры */
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  max-width: 800px;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-filter__label {
+  font-weight: 500;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.search-filter__select {
+  padding: 0.5rem 1rem;
+  font-size: 0.9375rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  background: #fff;
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.search-filter__select:focus {
+  outline: none;
+  border-color: var(--color-primary, #2e7d32);
+}
+
+.search-filter__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.search-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  background: #e9ecef;
+  border: 1px solid #dee2e6;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.search-tag:hover {
+  background: #dee2e6;
+}
+
+.search-tag.active {
+  background: var(--color-primary, #2e7d32);
+  border-color: var(--color-primary, #2e7d32);
+  color: #fff;
+}
+
+.search-tag input {
+  display: none;
+}
+
+/* Результаты */
+.search-results {
+  margin-top: 2rem;
+}
+
+.search-results__info {
+  font-size: 1.125rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+.search-results__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-result-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.search-result-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-card__title {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.search-result-card__title a {
+  color: var(--color-primary, #2e7d32);
+  text-decoration: none;
+}
+
+.search-result-card__title a:hover {
+  text-decoration: underline;
+}
+
+.search-result-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.search-result-card__category {
+  background: #e9ecef;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.search-result-card__rubric {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.search-result-card__excerpt {
+  color: #495057;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.search-result-card__excerpt mark {
+  background: #fff3cd;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.search-result-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.search-result-card__tag {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.25rem;
+  color: #6c757d;
+}
+
+/* Подсказки */
+.search-tips {
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.search-tips__title {
+  font-size: 1.125rem;
+  margin: 0 0 1rem 0;
+}
+
+.search-tips__list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.search-tips__list li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+/* Тёмная тема */
+html.dark-theme .search-filters {
+  background: #1a1a1a;
+}
+
+html.dark-theme .search-filter__select {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #fff;
+}
+
+html.dark-theme .search-tag {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #ccc;
+}
+
+html.dark-theme .search-tag:hover {
+  background: #3a3a3a;
+}
+
+html.dark-theme .search-tag.active {
+  background: var(--color-primary, #2e7d32);
+  border-color: var(--color-primary, #2e7d32);
+  color: #fff;
+}
+
+html.dark-theme .search-result-card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+html.dark-theme .search-form__input {
+  background: #1a1a1a;
+  border-color: #444;
+  color: #fff;
+}
+
+html.dark-theme .search-tips {
+  background: #1a1a1a;
+}
+
+html.dark-theme .search-result-card__excerpt mark {
+  background: #5c4a1f;
+}
+
+html.dark-theme .search-result-card__tag {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .search-form__group {
+    flex-direction: column;
+  }
+
+  .search-filters {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-filter__select {
+    min-width: 100%;
+  }
+
+  .search-filter__tags {
+    max-width: 100%;
+  }
+}
+</style>

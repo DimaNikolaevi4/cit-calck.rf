@@ -1,0 +1,263 @@
+sections:
+- id: normative
+  title: Нормативные правовые акты
+  description: Федеральные и региональные законы, указы, постановления
+  documents:
+  - title: ФЗ №273 "О противодействии коррупции"
+    date: 25.12.2008
+    type: html
+    size: ''
+    url: https://pravo.gov.ru/proxy/ips/?docbody=&nd=102120933
+    signed: true
+  - title: ФЗ №172 "Об антикоррупционной экспертизе"
+    date: 17.06.2009
+    type: html
+    size: ''
+    url: https://pravo.gov.ru/proxy/ips/?docbody=&nd=102131119
+    signed: true
+  - title: ФЗ №230 "О контроле за расходами"
+    date: 03.12.2012
+    type: html
+    size: ''
+    url: https://pravo.gov.ru/proxy/ips/?docbody=&nd=102162183
+    signed: true
+  - title: ФЗ №59 "О порядке рассмотрения обращений граждан"
+    date: 02.05.2006
+    type: html
+    size: ''
+    url: https://pravo.gov.ru/proxy/ips/?docbody=&nd=102105339
+    signed: true
+  - title: Указ Президента РФ №460 (форма справки о доходах)
+    date: 23.06.2014
+    type: html
+    size: ''
+    url: http://publication.pravo.gov.ru/Document/View/0001201406240039
+    signed: true
+  - title: Указ Президента РФ №378 (Национальный план 2018–2020)
+    date: 29.06.2018
+    type: html
+    size: ''
+    url: https://pravo.gov.ru/proxy/ips/?docbody=&nd=102168017
+    signed: true
+  - title: Приказ Рособрнадзора №1493
+    date: 10.12.2021
+    type: html
+    size: ''
+    url: https://pravo.gov.ru/proxy/ips/?docbody=&nd=402726
+    signed: true
+  - title: Приказ Минобрнауки №1070 (перечень должностей с коррупционными рисками)
+    date: 13.09.2013
+    type: html
+    size: ''
+    url: http://rulaws.ru/acts/Prikaz-Minobrnauki-Rossii-ot-13.09.2013-N-1070/
+    signed: true
+  - title: Постановление Правительства РФ №29 (правила сообщения о трудоустройстве
+      с госслужбы)
+    date: 21.01.2015
+    type: html
+    size: ''
+    url: http://publication.pravo.gov.ru/Document/View/0001201501230003
+    signed: true
+  - title: Постановление Правительства РФ №10 «О порядке сообщения о получении подарка
+      в связи с должностным положением, сдачи, оценки и реализации подарка»
+    date: 09.01.2014
+    type: html
+    size: ''
+    url: http://www.pravo.gov.ru/proxy/ips/?docbody=&link_id=0&nd=102170581&intelsearch=&firstDoc=1
+    signed: true
+  - title: Постановление Правительства РО №666 (Кодекс этики гражданских служащих
+      РО)
+    date: 22.09.2016
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Кодекс-этики-РО-1.pdf
+    signed: true
+  - title: Указ Президента РФ №567 (общественный совет при Президенте по делам казачества
+      — типовой пример)
+    date: 04.05.2011
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Указ-т-2011-№567.pdf
+    signed: true
+  - title: Указ Президента РФ №1065 (антикоррупционные стандарты — порядок проверки)
+    date: 21.09.2009
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Указ-от2009-№1065.pdf
+    signed: true
+  - title: Указ Президента РФ №559 (представление сведений о доходах)
+    date: 18.05.2009
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Указ-от-2009-№559.pdf
+    signed: true
+  - title: Распоряжение Губернатора Ростовской области №61 (план противодействия коррупции)
+    date: 2016
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Распоряж-Губерн-2016-№61.pdf
+    signed: true
+  - title: Постановление Правительства РО №220 (положение о мониторинге коррупционных
+      рисков, ред. 2018)
+    date: 2012
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Постанов-РО-2012-№220_red82.pdf
+    signed: true
+  - title: Постановление Правительства РО №291 (антикоррупционная экспертиза НПА РО)
+    date: 2013
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Постанов-РО-2013-№291.pdf
+    signed: true
+  - title: Постановление Правительства РО №339 (порядок проверки сведений о доходах
+      гражданских служащих РО)
+    date: 2012
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Постановл-РО-2012-№339.pdf
+    signed: true
+  - title: Постановление Правительства РО №419 (порядок уведомления о склонении к
+      коррупции)
+    date: 2013
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/Постановл-РО-2013-№419-.pdf
+    signed: true
+  - title: Постановление Правительства РО №610 (комиссия по конфликту интересов)
+    date: 2013
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/ПОСТАНОВЛ-РО-2013-№610.pdf
+    signed: true
+  - title: План мероприятий по противодействию коррупции в Ростовской области на 2021–2024
+      гг.
+    date: 2021
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/План-меропр-на-21-23-г.pdf
+    signed: true
+  - title: План по профилактике коррупционных и иных правонарушений Минобразования
+      РО
+    date: 2021
+    type: pdf
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/wp-content/uploads/2022/04/План-по-профилакт-минобр-РО.pdf
+    signed: true
+- id: local
+  title: Локальные нормативные акты ГБПОУ РО «СИТ»
+  description: Действующие локальные акты техникума по противодействию коррупции
+  documents:
+  - title: Кодекс профессиональной этики работников ГБПОУ РО «СИТ» (Приказ №140
+      от 13.12.2024)
+    date: 13.12.2024
+    type: pdf
+    size: 318 КБ
+    url: /docs/dokumenty/anti-corruption/kodeks-etiki-140.pdf
+    signed: true
+  - title: Положение об антикоррупционной политике в ГБПОУ РО «СИТ» (Приказ №143
+      от 13.12.2024)
+    date: 13.12.2024
+    type: pdf
+    size: 607 КБ
+    url: /docs/dokumenty/anti-corruption/polozhenie-antikorrupcia-143-full.pdf
+    signed: true
+  - title: Правила обмена деловыми подарками и знаками делового гостеприимства (Приказ
+      №144 от 13.12.2024)
+    date: 13.12.2024
+    type: pdf
+    size: 199 КБ
+    url: /docs/dokumenty/anti-corruption/pravila-obmena-delovymi-podarkami-144.pdf
+    signed: true
+  - title: Антикоррупционный стандарт закупочной деятельности ГБПОУ РО «СИТ» (2024)
+    date: 2024
+    type: docx
+    size: 17 КБ
+    url: /docs/dokumenty/anti-corruption/Антикоррупционный-стандарт-закупочной-деятельности-ГБПОУ-РО-_СИТ_-2024.docx
+- id: methodical
+  title: Методические материалы
+  description: Рекомендации, методички, разъяснения по вопросам противодействия коррупции
+  documents:
+  - title: Методические ресурсы Минтруда России (ФГИС «ЕИСУКС»)
+    type: html
+    size: ''
+    url: https://gossluzhba.gov.ru/anticorruption
+- id: forms
+  title: Формы документов
+  description: Бланки и образцы для заполнения
+  documents:
+  - title: Обращение гражданина по фактам коррупционных проявлений (бланк)
+    type: doc
+    size: ''
+    url: https://xn--b1auaw.xn--p1ai/my-files/anti_corruption/blank_corruption.doc
+  - title: Форма уведомления работодателя о фактах склонения к коррупции
+    type: docx
+    size: ''
+  - title: Анкета при поступлении на должность
+    type: docx
+    size: ''
+- id: expertise
+  title: Антикоррупционная экспертиза
+  description: Результаты проведения антикоррупционной экспертизы нормативных актов
+  documents:
+  - title: Порядок проведения антикоррупционной экспертизы (regulation.gov.ru)
+    type: html
+    size: ''
+    url: https://regulation.gov.ru/about/anticorr_exp.html
+  - title: Антикоррупционная экспертиза проектов НПА Ростовской области
+    type: html
+    size: ''
+    url: https://www.donland.ru/activity/1400/
+  - title: Антикоррупционная экспертиза — Законодательное собрание Ростовской области
+    type: html
+    size: ''
+    url: https://zsro.ru/deyatelnost/protivodeystvie-korruptsii/antikorruptsionnaya-ekspertiza/
+  - title: Постановление Правительства РФ №96 «Об антикоррупционной экспертизе НПА»
+      (Гарант)
+    type: html
+    size: ''
+    url: https://base.garant.ru/197633/
+- id: commission
+  title: Комиссия по урегулированию конфликта интересов
+  content: '<p>В ГБПОУ РО «СИТ» создана комиссия по соблюдению требований к служебному
+    поведению и урегулированию конфликта интересов. Основные задачи: рассмотрение
+    вопросов о возникновении конфликта интересов, выработка рекомендаций по его предотвращению
+    и контроль за выполнением обязательств сотрудниками.</p>
+
+    '
+  documents: []
+- id: income
+  title: Сведения о доходах руководителей
+  content: '<p>Информация о доходах, расходах, об имуществе и обязательствах имущественного
+    характера руководителей публикуется в соответствии с требованиями законодательства
+    РФ.</p>
+
+    '
+  documents:
+  - title: Сведения о доходах директора за 2024 год
+    date: 2025-04-01
+    type: pdf
+    size: ''
+  - title: Сведения о доходах заместителей директора за 2024 год
+    date: 2025-04-01
+    type: pdf
+    size: ''
+- id: reports
+  title: Отчёты о мероприятиях
+  description: Информация о проведённых мероприятиях по предупреждению коррупции
+  documents: []
+- id: feedback
+  title: Сообщить о факте коррупции
+  content: '<p>Вы можете анонимно сообщить о фактах коррупции через форму ниже или
+    по контактам:</p>
+
+    '
+  contacts:
+  - label: Телефон доверия
+    value: 8 (86372) 5-05-71
+  - label: Email
+    value: sitsalsk@mail.ru
+  - label: Адрес для письменных обращений
+    value: 347630, Ростовская область, г. Сальск, ул. Ленина, д. 27
+  documents: []
+  form: true
