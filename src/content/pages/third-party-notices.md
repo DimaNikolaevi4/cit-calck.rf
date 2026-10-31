@@ -79,6 +79,6 @@ rubric: "0"
 
 ### Полные материалы аудита
 
-- [Реестр происхождения ассетов](https://github.com/DimaNikolaevi4/site/blob/site-v2/docs/baseline/2026-09-15/ASSET_PROVENANCE_REGISTRY.md)
-- [Чек-лист происхождения изображений](https://github.com/DimaNikolaevi4/site/blob/site-v2/docs/baseline/2026-09-15/ASSET_PROVENANCE_CHECKLIST.md)
-- [Аудит текстового контента](https://github.com/DimaNikolaevi4/site/blob/site-v2/docs/baseline/2026-09-15/TEXT_CONTENT_AUDIT.md)
+- [Реестр происхождения ассетов](https://github.com/DimaNikolaevi4/cit-calck.rf/blob/main/docs/baseline/2026-09-15/ASSET_PROVENANCE_REGISTRY.md)
+- [Чек-лист происхождения изображений](https://github.com/DimaNikolaevi4/cit-calck.rf/blob/main/docs/baseline/2026-09-15/ASSET_PROVENANCE_CHECKLIST.md)
+- [Аудит текстового контента](https://github.com/DimaNikolaevi4/cit-calck.rf/blob/main/docs/baseline/2026-09-15/TEXT_CONTENT_AUDIT.md)
