@@ -1,4 +1,15 @@
 #!/bin/bash
+# Деплой сайта ГБПОУ РО «Сальский индустриальный техникум» — https://сит-сальск.рф
+#
+# Источник кода: git@github.com:DimaNikolaevi4/cit-calck.rf.git, ветка main.
+# Запуск на сервере: cd ~/sit-saljsk.rf && bash deploy.sh
+#
+# ВАЖНО: часть файлов живёт ТОЛЬКО на хостинге и в репозитории их нет намеренно:
+#   public_html/docs/       — 291 документ (лицензия, рабочие программы, локальные акты), 1,2 ГБ
+#   public_html/uploads/    — файлы, загруженные через формы сайта
+#   public_html/submit-form.php, forms.log, .htaccess
+# Они исключены из очистки ниже — не убирайте эти исключения, иначе при деплое
+# документы будут удалены с сайта и восстановить их будет неоткуда.
 set -e
 
 RED=$'\033[0;31m'
@@ -13,6 +24,8 @@ log_error()   { echo -e "${RED}[ERROR]${NC} $1"; }
 PROJECT_DIR="$HOME/sit-saljsk.rf"
 NVM_DIR="$HOME/.nvm"
 BUILD_DIR="$PROJECT_DIR/temp-build"
+REPO_URL="git@github.com:DimaNikolaevi4/cit-calck.rf.git"
+REPO_BRANCH="main"
 
 ensure_node() {
     if command -v node &>/dev/null && command -v npm &>/dev/null; then
@@ -37,47 +50,41 @@ run_deploy() {
     log_info "Начало деплоя..."
     cd "$PROJECT_DIR" || { log_error "Нет папки $PROJECT_DIR"; exit 1; }
 
-    # === ОПТИМИЗАЦИЯ 1: не клонируем заново, а обновляем существующий ===
+    # === Обновление рабочей копии репозитория ===
     if [ -d "$BUILD_DIR/.git" ]; then
-        log_info "Обновляем существующий репозиторий (git pull)..."
+        log_info "Обновляем существующий репозиторий (git fetch)..."
         cd "$BUILD_DIR"
         GIT_SSH_COMMAND="ssh -i ~/.ssh/github -o IdentitiesOnly=yes" \
-            git fetch origin site-v2
+            git fetch origin "$REPO_BRANCH"
         GIT_SSH_COMMAND="ssh -i ~/.ssh/github -o IdentitiesOnly=yes" \
-            git reset --hard origin/site-v2
+            git reset --hard "origin/$REPO_BRANCH"
         GIT_SSH_COMMAND="ssh -i ~/.ssh/github -o IdentitiesOnly=yes" \
             git clean -fd
     else
-        log_info "Первичное клонирование (shallow, depth=1)..."
+        log_info "Клонируем репозиторий (первый запуск)..."
         GIT_SSH_COMMAND="ssh -i ~/.ssh/github -o IdentitiesOnly=yes" \
-            git clone --depth 1 --branch site-v2 --single-branch \
-            git@github.com:DimaNikolaevi4/site.git "$BUILD_DIR"
+            git clone --branch "$REPO_BRANCH" "$REPO_URL" "$BUILD_DIR"
         cd "$BUILD_DIR"
     fi
 
-    # === ОПТИМИЗАЦИЯ 2: npm ci только если package-lock.json изменился ===
-    LOCK_HASH_FILE="$BUILD_DIR/.lockhash"
-    CURRENT_LOCK_HASH=$(md5sum package-lock.json | cut -d' ' -f1)
-    STORED_LOCK_HASH=""
-    [ -f "$LOCK_HASH_FILE" ] && STORED_LOCK_HASH=$(cat "$LOCK_HASH_FILE")
-
-    if [ "$CURRENT_LOCK_HASH" != "$STORED_LOCK_HASH" ]; then
-        log_info "Зависимости изменились — устанавливаем (npm ci)..."
-        npm ci --no-audit --no-fund
-        echo "$CURRENT_LOCK_HASH" > "$LOCK_HASH_FILE"
-    else
-        log_info "Зависимости не изменились — пропускаем npm ci."
-    fi
+    # === Зависимости ===
+    # npm ci --omit=dev ставит только прод-зависимости (быстро), но для сборки
+    # нужны devDependencies (@11ty/eleventy, sharp, clean-css). Следующая строка
+    # с npm install доустанавливает полное дерево, включая их.
+    log_info "Устанавливаем зависимости..."
+    npm ci --omit=dev
+    npm install js-yaml 2>/dev/null || true
 
     # === Сборка ===
     log_info "Собираем проект (build:v2)..."
     npm run build:v2
 
     # === Копирование в public_html ===
-    log_info "Очищаем public_html..."
+    log_info "Очищаем public_html (кроме данных, которые живут только на хостинге)..."
     cd "$PROJECT_DIR/public_html"
     find . -mindepth 1 -maxdepth 1 \
         ! -name "docs" \
+        ! -name "uploads" \
         ! -name "submit-form.php" \
         ! -name "forms.log" \
         ! -name ".htaccess" \
@@ -85,7 +92,10 @@ run_deploy() {
 
     log_info "Копируем файлы из public-v2..."
     cp -r "$BUILD_DIR/public-v2/"* "$PROJECT_DIR/public_html/"
-    cp "$BUILD_DIR/submit-form.php" "$PROJECT_DIR/public_html/" 2>/dev/null || true
+
+    if [ -f "$BUILD_DIR/submit-form.php" ]; then
+        cp "$BUILD_DIR/submit-form.php" "$PROJECT_DIR/public_html/"
+    fi
 
     if [ -f "$PROJECT_DIR/public_html/robots/index.html" ]; then
         mv "$PROJECT_DIR/public_html/robots/index.html" "$PROJECT_DIR/public_html/robots.txt"
@@ -100,7 +110,7 @@ run_deploy() {
     find "$PROJECT_DIR/public_html" -type d -exec chmod 755 {} \;
     chmod 777 "$PROJECT_DIR/public_html/uploads/forms" 2>/dev/null || true
 
-    # === ОПТИМИЗАЦИЯ 3: НЕ удаляем temp-build — оставляем для следующего деплоя ===
+    # temp-build не удаляем — следующий деплой обновится через git fetch.
     log_info "Деплой завершён! Сайт: https://сит-сальск.рф"
 }
 
