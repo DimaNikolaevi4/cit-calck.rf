@@ -17,6 +17,16 @@
       "why": "ритм работ пока не ясен — нужен разговор с владельцем",
       "link": "",
       "source": "agent"
+    },
+    {
+      "id": "site-duplicate-review",
+      "title": "Сверить site и cit-calck.rf: подтвердить, что site лишний дубликат, и удалить репозиторий site",
+      "when": null,
+      "time": null,
+      "status": "backlog",
+      "why": "репозитории дублируют друг друга; удаление репо на GitHub выполняется вручную владельцем",
+      "link": "",
+      "source": "owner"
     }
   ]
 }
